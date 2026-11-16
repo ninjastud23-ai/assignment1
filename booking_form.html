@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Campus Facility Booking</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f1f5f9; margin: 0; padding: 30px 15px; color: #1e293b; }
+        main { max-width: 530px; margin: 0 auto; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px #00000012; }
+        h1 { margin-top: 0; color: #164e80; }
+        label { display: block; margin: 17px 0 7px; font-weight: bold; }
+        input, select, button { display: block; width: 100%; padding: 12px; font: inherit; border-radius: 6px; }
+        input, select { border: 1px solid #94a3b8; }
+        button { margin-top: 24px; border: none; background: #17609c; color: white; cursor: pointer; font-weight: bold; }
+        button:hover { background: #124c7b; }
+        small { color: #475569; }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Campus Facility Reservation</h1>
+    <p>Choose an item and the number of booking days. Faculty members receive a 15% discount.</p>
+    <form action="ReservationServlet" method="post" accept-charset="UTF-8">
+        <label for="userName">Full Name</label>
+        <input id="userName" name="userName" type="text" maxlength="100" required>
+
+        <label for="userRole">User Role</label>
+        <select id="userRole" name="userRole" required>
+            <option value="" disabled selected>Select your role</option>
+            <option value="STUDENT">STUDENT</option>
+            <option value="FACULTY">FACULTY</option>
+        </select>
+
+        <label for="itemCategory">Item Category</label>
+        <select id="itemCategory" name="itemCategory" required>
+            <option value="" disabled selected>Select a facility</option>
+            <option value="LAPTOP">LAPTOP (50 AED/day)</option>
+            <option value="PROJECTOR">PROJECTOR (80 AED/day)</option>
+            <option value="POD">POD (100 AED/day)</option>
+        </select>
+
+        <label for="quantity">Quantity</label>
+        <input id="quantity" name="quantity" type="number" min="1" max="1000" step="1" required>
+
+        <label for="bookingDays">Booking Days</label>
+        <input id="bookingDays" name="bookingDays" type="number" min="1" max="365" step="1" required>
+        <small>Amount will be calculated when you submit.</small>
+
+        <button type="submit">Submit Reservation</button>
+    </form>
+</main>
+</body>
+</html>
